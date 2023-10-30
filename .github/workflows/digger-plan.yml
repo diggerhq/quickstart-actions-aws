@@ -1,0 +1,35 @@
+name: Digger Plan
+
+on:
+  pull_request:
+    branches: [ "main" ]
+    types: [ opened, synchronize ]
+  issue_comment:
+    types: [created]
+  workflow_dispatch:
+
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    permissions:    
+      contents: write      # required to merge PRs
+      id-token: write      # required for workload-identity-federation
+      pull-requests: write # required to post PR comments
+      statuses: write      # required to validate combined PR status
+
+    steps:
+      - uses: actions/checkout@v4
+      # Unlike GCP; the role assumption is handled inline 
+      - name: digger run
+        uses: diggerhq/digger@v0.2.0
+        with:
+          setup-aws: true
+          aws-role-to-assume: arn:aws:sts::${{ secrets.AccountID }}:assumed-role/${{secrets.RoleName}}/${{FunctionName}}
+          aws-region: us-east-1
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          LOCK_PROVIDER: aws
+          AWS_STORAGE_BUCKET: 'digger-lock-prod'
+    
