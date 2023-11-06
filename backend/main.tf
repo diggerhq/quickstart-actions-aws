@@ -11,8 +11,18 @@ provider "aws" {
   region = "us-east-1"
 }
 
+variable "bucket_id" {
+  type = string
+  default = "digger-s3backend-quickstart-aws"
+}
+
+variable "dynamo_lock_table_id" {
+  type = string
+  default = "digger-locktable-quickstart-aws"
+}
+
 resource "aws_s3_bucket" "example" {
-  bucket = "bucket-tfstate"
+  bucket = var.bucket_id
 }
 
 resource "aws_s3_bucket_versioning" "example" {
@@ -32,7 +42,7 @@ resource "aws_s3_bucket_public_access_block" "example" {
 }
 
 resource "aws_dynamodb_table" "DiggerDynamoDBLockTable" {
-  name             = "DiggerDynamoDBLockTable"
+  name             = var.dynamo_lock_table_id
   billing_mode     = "PAY_PER_REQUEST"
   stream_enabled   = true
   stream_view_type = "NEW_AND_OLD_IMAGES"
