@@ -2,7 +2,7 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "5.24.0"
+      version = "5.29.0"
     }
   }
 }
@@ -13,12 +13,10 @@ provider "aws" {
 
 variable "bucket_id" {
   type = string
-  default = "digger-s3backend-quickstart-aws"
 }
 
 variable "dynamo_lock_table_id" {
   type = string
-  default = "digger-locktable-quickstart-aws"
 }
 
 resource "aws_s3_bucket" "example" {
