@@ -24,6 +24,6 @@ provider "aws" {
 resource "aws_vpc" "vpc_network" {
   cidr_block = "10.0.0.0/16"
   tags = {
-    Name = "terraform-network"
+    Name = "terraform-network2"
   }
 }
