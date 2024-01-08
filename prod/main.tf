@@ -5,13 +5,13 @@ terraform {
       version = "5.24.0"
     }
   }
-    backend "s3" {
-    bucket = "digger-s3backend-quickstart-aws"              # Change if a different S3 bucket name was used for the backend 
-    /* Un-comment to use DynamoDB state locking
-    dynamodb_table = "digger-locktable-quickstart-aws"      # Change if a different DynamoDB table name was used for backend
-    */
-    key    = "terraform/state"
-    region = "us-east-1"
+  backend "s3" {
+    bucket         = "nsuslab-devops-terraform-state"
+    key            = "digger/terraform.tfstate"
+    region         = "ap-northeast-2"
+    encrypt        = false
+    dynamodb_table = "nsuslab-devops-lock-table"
+    role_arn       = "arn:aws:iam::651482608654:role/assumable-cicd-role"
   }
 }
 
