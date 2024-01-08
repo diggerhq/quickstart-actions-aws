@@ -1,3 +1,3 @@
 generate_projects:
-  include: "terraform/**"
+  include: "terraform/**/**"
 auto_merge: true

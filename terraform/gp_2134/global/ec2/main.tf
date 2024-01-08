@@ -7,7 +7,7 @@ terraform {
   }
   backend "s3" {
     bucket         = "nsuslab-devops-terraform-state"
-    key            = "digger/gp_2134/global/acm/terraform.tfstate"
+    key            = "digger/terraform.tfstate"
     region         = "ap-northeast-2"
     encrypt        = false
     dynamodb_table = "nsuslab-devops-lock-table"
@@ -16,14 +16,14 @@ terraform {
 }
 
 
+
 provider "aws" {
-  region = "ap-east-1"  # Replace with your desired AWS region
+  region = "us-east-1"  # Replace with your desired AWS region
 }
 
-resource "aws_vpc" "vpc_network" {
+resource "aws_vpc" "vpc_network_2" {
   cidr_block = "10.0.0.0/16"
   tags = {
-    Name = "terraform-network1"
+    Name = "terraform-network2"
   }
 }
-
