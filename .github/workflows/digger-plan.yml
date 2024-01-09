@@ -27,7 +27,7 @@ jobs:
           setup-aws: true
           
           #Uncomment below line if using OIDC
-          # aws-role-to-assume: arn:aws:iam::651482608654:role/assumable-cicd-role
+          aws-role-to-assume: arn:aws:iam::651482608654:role/assumable-cicd-role
          
           #Comment the following two lines out if using OIDC. 
           # aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
