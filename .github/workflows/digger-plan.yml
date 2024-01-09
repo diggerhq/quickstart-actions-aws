@@ -32,6 +32,7 @@ jobs:
           #Comment the following two lines out if using OIDC. 
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          digger-toke: ${{ secrets.DIGGER_TOKEN }}
           digger-hostname: 'http://k8s-nsusdevopsmgmtalb-0c85a028f5-1534446771.ap-northeast-2.elb.amazonaws.com'
           ##End comment block
           aws-region: us-east-1
