@@ -22,7 +22,7 @@ jobs:
       - uses: actions/checkout@v4
       # Unlike GCP; the role assumption is handled inline 
       - name: digger run
-        uses: diggerhq/digger@v0.3.1
+        uses: diggerhq/digger@v0.3.11
         with:
           setup-aws: true
           
