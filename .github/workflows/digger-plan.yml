@@ -22,7 +22,7 @@ jobs:
       - uses: actions/checkout@v4
       # Unlike GCP; the role assumption is handled inline 
       - name: digger run
-        uses: diggerhq/digger@v0.2.0/oidc-multirole-project-apply
+        uses: diggerhq/digger@v0.2.0
         with:
           setup-aws: true
           
@@ -30,8 +30,8 @@ jobs:
           #aws-role-to-assume: arn:aws:sts::{secrets.AccountID}:assumed-role/{secrets.RoleName}/{FunctionName}
          
           #Comment the following two lines out if using OIDC. 
-          # aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          # aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           digger-hostname: 'http://k8s-nsusdevopsmgmtalb-0c85a028f5-1534446771.ap-northeast-2.elb.amazonaws.com'
           ##End comment block
           aws-region: us-east-1
