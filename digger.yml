@@ -6,6 +6,6 @@ generate_projects:
         state: arn:aws:iam::893452408139:role/assumable-cicd-role
     - include: "terraform/np_5455/**"
       aws_role_to_assume:
-        command: arn:aws:iam::651482608654:role/assumable-cicd-role
-        state: arn:aws:iam::651482608654:role/assumable-cicd-role
+        command: arn:aws:iam::809599471177:role/assumable-cicd-role
+        state: arn:aws:iam::809599471177:role/assumable-cicd-role
 auto_merge: true
