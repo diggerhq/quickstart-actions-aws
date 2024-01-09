@@ -2,5 +2,6 @@ generate_projects:
   blocks:
   - include: "terraform/gp_2134/**"
     aws_role_to_assume:
-      command: "arn:aws:iam::893452408139:role/assumable-cicd-role"
+      command: arn:aws:iam::893452408139:role/assumable-cicd-role
+      state: arn:aws:iam::893452408139:role/assumable-cicd-role
 auto_merge: true
