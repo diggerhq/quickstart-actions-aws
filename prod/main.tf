@@ -17,6 +17,6 @@ provider "aws" {
 }
 
 resource "aws_s3_bucket" "test" {
-  bucket = "alexp-test-123"
+  bucket = "alexp-test-12345"
   acl    = "private"
 }
