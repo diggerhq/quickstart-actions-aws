@@ -1,5 +1,3 @@
 projects:
 - name: production
   dir: prod
-- name: blah
-  dir: test 
