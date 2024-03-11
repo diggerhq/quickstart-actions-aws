@@ -13,7 +13,7 @@ provider "aws" {
 
 variable "bucket_id" {
   type = string
-  default = "digger-s3backend-quickstart-aws"
+  default = "digger-s3backend-quickstart-aws-1103"
 }
 
 variable "dynamo_lock_table_id" {
