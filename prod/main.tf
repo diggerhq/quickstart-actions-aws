@@ -7,9 +7,6 @@ terraform {
   }
     backend "s3" {
     bucket = "digger-s3backend-quickstart-aws"
-    /* Un-comment to use DynamoDB state locking
-    dynamodb_table = "digger-locktable-quickstart-aws"      # Change if a different DynamoDB table name was used for backend
-    */
     key    = "terraform/state"
     region = "us-east-1"
   }
