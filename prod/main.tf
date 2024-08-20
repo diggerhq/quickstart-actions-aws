@@ -1,56 +1,12 @@
-terraform {
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "5.24.0"
-    }
-  }
-    backend "s3" {
-    bucket = "digger-s3backend-quickstart-aws"
-    key    = "terraform/state"
-    region = "us-east-1"
-  }
-}
-
 provider "aws" {
-  region = "us-east-1"  # Replace with your desired AWS region
+  region = "us-east-1"
 }
 
-resource "aws_vpc" "vpc_network" {
-  cidr_block = "10.0.0.0/16"
-  tags = {
-    Name = "terraform-network"
-  }
-}
-
-resource "aws_subnet" "vpc_subnet" {
-  vpc_id                  = aws_vpc.vpc_network.id
-  cidr_block              = "10.0.1.0/24"
-  availability_zone       = "us-east-1a"  
-  map_public_ip_on_launch = true
+resource "aws_instance" "example" {
+  ami           = "ami-014d544cfef21b42d"
+  instance_type = "t2.micro"
 
   tags = {
-    Name = "terraform-subnet"
-  }
-}
-
-resource "aws_security_group" "security_group" {
-  vpc_id      = aws_vpc.vpc_network.id
-  name_prefix = "terraform-"
-  ingress {
-    from_port   = 80
-    to_port     = 80
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-}
-
-resource "aws_instance" "vm_instance" {
-  ami             = "ami-05c13eab67c5d8861"
-  instance_type   = "t2.micro"
-  subnet_id       = aws_subnet.vpc_subnet.id
-  security_groups = [aws_security_group.security_group.id]
-  tags = {
-    Name = "digger-instance"
+    Name = "Terraform-Example"
   }
 }
