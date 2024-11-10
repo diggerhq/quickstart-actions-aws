@@ -15,3 +15,8 @@ The instance is locked down to not be accessible from outside the network.
 
 # .github/workflows
 Contains digger-plan.yml with two different potential ways of authenticating against an AWS account. Please review the main digger documentation on details as to which scheme to use. 
+fg
+df
+
+d
+gfgd
