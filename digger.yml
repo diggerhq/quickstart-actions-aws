@@ -1,3 +1,4 @@
 projects:
 - name: production
   dir: prod
+  opentofu: true
