@@ -7,9 +7,6 @@ terraform {
   }
     backend "s3" {
     bucket = "digger-s3backend-quickstart-aws-jalonso"              # Change if a different S3 bucket name was used for the backend 
-    /* Un-comment to use DynamoDB state locking
-    dynamodb_table = "digger-locktable-quickstart-aws"      # Change if a different DynamoDB table name was used for backend
-    */
     key    = "terraform/state"
     region = "us-east-1"
   }
@@ -18,6 +15,7 @@ terraform {
 provider "aws" {
   region = "us-east-1"  # Replace with your desired AWS region
 }
+
 
 resource "aws_vpc" "vpc_network" {
   cidr_block = "10.0.0.0/16"
@@ -57,3 +55,4 @@ resource "aws_instance" "vm_instance" {
     Name = "terraform-instance"
   }
 }
+
