@@ -13,7 +13,7 @@ provider "aws" {
 
 variable "bucket_id" {
   type = string
-  default = "digger-s3backend-quickstart-aws-jalonso"
+  default = "amzn-digger-demo-s3"
 }
 
 variable "dynamo_lock_table_id" {
