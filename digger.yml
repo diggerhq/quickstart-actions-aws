@@ -1,3 +1,8 @@
+plan_storage:
+  type: s3
+  bucket: amzn-digger-demo-s3
+  region: us-east-1
+
 projects:
 - name: production
   dir: prod
